@@ -1,0 +1,81 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input AddMovieInput {
+  comment: String
+  eval: Int!
+  genre_id: Int!
+  name: String!
+  user_id: Int!
+}
+
+input AddUserInput {
+  name: String!
+  password: String
+}
+
+type Genre {
+  created_at: String!
+  deleted_at: String
+  id: Int!
+  name: String!
+  updated_at: String!
+}
+
+type Movie {
+  comment: String
+  created_at: String!
+  deleted_at: String
+  display_flag: Int!
+  eval: Int!
+  genre: Genre!
+  genre_id: Int!
+  id: Int!
+  name: String!
+  updated_at: String!
+  user: User!
+  user_id: Int!
+}
+
+type Mutation {
+  addMovie(addMovieInput: AddMovieInput!): Movie!
+  addUser(addUserInput: AddUserInput!): User!
+  deleteMovie(id: Int!): Boolean!
+  deleteUser(id: Int!): Boolean!
+  updateMovie(updateMovieInput: UpdateMovieInput!): Movie!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Query {
+  movie(id: Int!): Movie!
+  movies(p: Int, rc: Int, s: String, user_id: Int): [Movie!]!
+  user(id: Int!): User!
+  users: [User!]!
+}
+
+input UpdateMovieInput {
+  comment: String
+  eval: Int!
+  genre_id: Int!
+  id: Int!
+  name: String!
+  user_id: Int!
+}
+
+input UpdateUserInput {
+  id: Int!
+  name: String!
+  password: String
+}
+
+type User {
+  created_at: String!
+  deleted_at: String
+  id: Int!
+  movies: [Movie!]!
+  name: String!
+  password: String
+  role: Int!
+  updated_at: String!
+}
